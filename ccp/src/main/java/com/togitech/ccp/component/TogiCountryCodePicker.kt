@@ -114,6 +114,8 @@ fun TogiCountryCodePicker(
     keyboardOptions: KeyboardOptions? = null,
     keyboardActions: KeyboardActions? = null,
     showError: Boolean = true,
+    doOnClick:Boolean = true,
+    changeIconColor:Boolean = true
 ) {
     val context = LocalContext.current
     val focusRequester = remember { FocusRequester() }
@@ -241,13 +243,16 @@ fun TogiCountryCodePicker(
         trailingIcon = {
             if (clearIcon != null) {
                 ClearIconButton(
+                    changeColor = changeIconColor
                     imageVector = clearIcon,
                     colors = colors,
                     isNumberValid = !showError || isNumberValid,
                 ) {
-                    phoneNumber = TextFieldValue("")
-                    isNumberValid = false
-                    onValueChange(country.countryPhoneCode to phoneNumber.text, isNumberValid)
+                    if(doOnClick){
+                        phoneNumber = TextFieldValue("")
+                        isNumberValid = false
+                       onValueChange(country.countryPhoneCode to phoneNumber.text, isNumberValid)
+                    }
                 }
             }
         },
@@ -307,6 +312,7 @@ private fun PlaceholderNumberHint(countryIso: Iso31661alpha2) {
 @Composable
 private fun ClearIconButton(
     imageVector: ImageVector,
+    changeColor:Boolean,
     colors: TextFieldColors,
     isNumberValid: Boolean,
     onClick: () -> Unit,
@@ -314,11 +320,11 @@ private fun ClearIconButton(
     Icon(
         imageVector = imageVector,
         contentDescription = stringResource(id = R.string.clear),
-        tint = colors.trailingIconColor(
+        tint = if(changeColor){colors.trailingIconColor(
             enabled = true,
             isError = !isNumberValid,
             interactionSource = remember { MutableInteractionSource() },
-        ).value,
+        ).value},
     )
 }
 
