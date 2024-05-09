@@ -70,7 +70,9 @@ TogiCountryCodePicker(
 | textStyle               | An optional [TextStyle](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle) for customizing text style of phone number input field. Defaults to MaterialTheme.typography.body1                                              |
 | keyboardOptions         | An optional [KeyboardOptions](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/KeyboardOptions) to customize keyboard options.                                                                                              |
 | keyboardActions         | An optional [KeyboardActions](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/KeyboardActions) to customize keyboard actions.                                                                                              |
-| showError               | Whether to show error on field when number is invalid, default true.                                                                                                                                                                                       |
+| showError               | Whether to show error on field when number is invalid, default true.
+| doOnClick               | Whether the trailing icon is clickable or not, default is true. 
+| changeIconColor         | Whether or not to change the icon color to grey, default is true.
 
 
 ## How to add in your project
