@@ -49,6 +49,8 @@ dependencies {
     api(libs.kotlinx.immutable)
     api(libs.libphonenumber)
     debugImplementation(libs.compose.tooling)
+    implementation(platform(libs.compose.bom))
+    implementation(libs.androidx.material3.android)
     implementation(libs.androidx.core)
     implementation(libs.androidx.lifecycle.compose)
     implementation(libs.androidx.lifecycle.viewmodel)

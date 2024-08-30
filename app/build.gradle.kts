@@ -37,6 +37,7 @@ android {
 }
 
 dependencies {
+    implementation(platform(libs.compose.bom))
     implementation(libs.accompanist.systemuicontroller)
     implementation(libs.androidx.core)
     implementation(libs.androidx.lifecycle.runtime)
@@ -44,6 +45,7 @@ dependencies {
     implementation(libs.compose.material)
     implementation(libs.compose.tooling)
     implementation(libs.compose.ui)
+    implementation(libs.androidx.material3.android)
     implementation(projects.ccp)
     testImplementation(libs.junit)
 }
