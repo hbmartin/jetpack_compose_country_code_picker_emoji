@@ -5,6 +5,7 @@ plugins {
     id("io.gitlab.arturbosch.detekt") version libs.versions.detekt.get()
     id("org.jetbrains.dokka")
     alias(libs.plugins.paparazzi)
+    id ("org.jetbrains.kotlin.plugin.compose") version libs.versions.kotlin
 }
 
 kotlin {
@@ -35,9 +36,7 @@ android {
         jvmTarget = JavaVersion.VERSION_17.toString()
         freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
-    }
+
     publishing {
         singleVariant("release") {
             withJavadocJar()
@@ -60,7 +59,7 @@ dependencies {
     implementation(libs.compose.tooling.preview)
 
     detektPlugins("ru.kode:detekt-rules-compose:1.3.0")
-    detektPlugins("io.nlopez.compose.rules:detekt:0.3.3")
+    detektPlugins("io.nlopez.compose.rules:detekt:0.4.11")
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-rules-libraries:${libs.versions.detekt.get()}")
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:${libs.versions.detekt.get()}")
     detektPlugins("com.braisgabin.detekt:kotlin-compiler-wrapper:0.0.4")

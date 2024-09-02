@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.ContentAlpha
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -110,8 +111,8 @@ fun TogiCountryCodePicker(
     initialCountryIsoCode: Iso31661alpha2? = null,
     initialCountryPhoneCode: PhoneCode? = null,
     label: @Composable (() -> Unit)? = null,
-    textStyle: TextStyle = MaterialTheme.typography.body1.copy(
-        color = colors.textColor(enabled = true).value,
+    textStyle: TextStyle = MaterialTheme.typography.bodyLarge.copy(
+        color = MaterialTheme.colorScheme.onSurface,
     ),
     keyboardOptions: KeyboardOptions? = null,
     keyboardActions: KeyboardActions? = null,
@@ -231,9 +232,9 @@ fun TogiCountryCodePicker(
                 showCountryCode = showCountryCode,
                 showFlag = showCountryFlag,
                 textStyle = textStyle,
-                backgroundColor = colors.backgroundColor(enabled = true).value.let { color ->
+                backgroundColor = MaterialTheme.colorScheme.background.let { color ->
                     if (color == Color.Unspecified || color == Color.Transparent) {
-                        MaterialTheme.colors.surface
+                        MaterialTheme.colorScheme.surface
                     } else {
                         color
                     }
@@ -313,14 +314,16 @@ private fun ClearIconButton(
     isNumberValid: Boolean,
     onClick: () -> Unit,
 ) = IconButton(onClick = onClick) {
+    val enabled = true
+    val trailingIconColor = when {
+        !isNumberValid -> MaterialTheme.colorScheme.error
+        enabled -> MaterialTheme.colorScheme.onSurfaceVariant
+        else -> MaterialTheme.colorScheme.onSurface.copy(alpha = ContentAlpha.disabled)
+    }
     Icon(
         imageVector = imageVector,
         contentDescription = stringResource(id = R.string.clear),
-        tint = colors.trailingIconColor(
-            enabled = true,
-            isError = !isNumberValid,
-            interactionSource = remember { MutableInteractionSource() },
-        ).value,
+        tint = trailingIconColor
     )
 }
 

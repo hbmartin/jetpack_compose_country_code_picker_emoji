@@ -1,5 +1,5 @@
 [versions]
-kotlin = "1.9.22"
+kotlin = "2.0.0"
 dokka = "1.9.10"
 
 ## SDK Versions
@@ -23,8 +23,7 @@ androidx-test-junit = "1.2.1"
 compose = "1.6.8"
 # https://androidx.dev/storage/compose-compiler/repository/
 # https://developer.android.com/jetpack/androidx/releases/compose-compiler
-composeCompiler = "1.5.15"
-composeBom = "2024.04.00"
+composeBom = "2024.08.00"
 
 
 kotlinx-coroutines = "1.7.3"
@@ -48,7 +47,6 @@ androidx-test-junit = { module = "androidx.test.ext:junit-ktx", version.ref = "a
 
 
 compose-activity = { module = "androidx.activity:activity-compose"}
-compose-compiler = { module = "androidx.compose.compiler:compiler"}
 compose-foundation = { module = "androidx.compose.foundation:foundation"}
 compose-material = { module = "androidx.compose.material:material"}
 compose-tooling = { module = "androidx.compose.ui:ui-tooling"}
