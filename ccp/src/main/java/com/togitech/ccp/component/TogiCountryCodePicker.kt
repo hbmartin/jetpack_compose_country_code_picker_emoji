@@ -3,12 +3,10 @@ package com.togitech.ccp.component
 import android.content.Context
 import android.util.Log
 import androidx.compose.foundation.focusable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.ContentAlpha
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -318,7 +316,7 @@ private fun ClearIconButton(
     val trailingIconColor = when {
         !isNumberValid -> MaterialTheme.colorScheme.error
         enabled -> MaterialTheme.colorScheme.onSurfaceVariant
-        else -> MaterialTheme.colorScheme.onSurface.copy(alpha = ContentAlpha.disabled)
+        else -> MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
     }
     Icon(
         imageVector = imageVector,
