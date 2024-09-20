@@ -40,6 +40,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.togitech.ccp.R
@@ -252,7 +253,8 @@ fun TogiCountryCodePicker(
             }
         },
         isError = showError && !isNumberValid,
-        visualTransformation = phoneNumberTransformation,
+//        visualTransformation = phoneNumberTransformation,
+        visualTransformation = VisualTransformation.None, // FIXME: Temporary disable visual transformation to avoid app crash
         keyboardOptions = keyboardOptions ?: KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Phone,
             autoCorrectEnabled = true,
