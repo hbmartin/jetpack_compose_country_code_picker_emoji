@@ -76,7 +76,7 @@ class PhoneNumberTransformation(countryCode: String, context: Context) : VisualT
             } else {
                 originalToTransformed.add(index)
             }
-            transformedToOriginal.add(index - specialCharsCount)
+            transformedToOriginal.add(maxOf(index - specialCharsCount, 0))
         }
         originalToTransformed.add(originalToTransformed.maxOrNull()?.plus(1) ?: 0)
         transformedToOriginal.add(transformedToOriginal.maxOrNull()?.plus(1) ?: 0)

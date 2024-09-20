@@ -253,8 +253,7 @@ fun TogiCountryCodePicker(
             }
         },
         isError = showError && !isNumberValid,
-//        visualTransformation = phoneNumberTransformation,
-        visualTransformation = VisualTransformation.None, // FIXME: Temporary disable visual transformation to avoid app crash
+        visualTransformation = phoneNumberTransformation,
         keyboardOptions = keyboardOptions ?: KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Phone,
             autoCorrectEnabled = true,
