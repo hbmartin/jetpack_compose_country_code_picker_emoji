@@ -55,6 +55,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.compose.activity)
     implementation(libs.compose.material)
+    implementation(libs.compose.icons)
     implementation(libs.compose.tooling.preview)
 
     detektPlugins("ru.kode:detekt-rules-compose:1.3.0")
