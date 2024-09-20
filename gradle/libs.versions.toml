@@ -1,33 +1,56 @@
 [versions]
-kotlin = "1.9.22"
+kotlin = "1.9.25"
 dokka = "1.9.10"
 
 ## SDK Versions
+materialIconsCore = "1.7.2"
 minSdk = "24"
 targetSdk = "34"
 compileSdk = "34"
 
 # Dependencies
-android-gradle-plugin = "8.2.2"
+android-gradle-plugin = "8.6.1"
 gradle-versions = "0.50.0"
-detekt = "1.23.3"
+detekt = "1.23.7"
 
-accompanist = "0.34.0"
-androidx-activity-compose = "1.8.2"
-androidx-core = "1.12.0"
-androidx-lifecycle = "2.7.0"
-androidx-test-junit = "1.1.5"
+activity_version = "1.9.2"
+fragment_version = "1.8.2"
+compose_bom_version = "2024.09.01"
+compose_compiler_version = "1.5.15"
+hilt_version = "2.52"
+hilt_jetpack_version = "1.2.0"
+apollo_version = "3.8.4"
+coroutines_version = "1.8.1"
+coroutine_lifecycle_version = "2.8.4"
+nav_version = "2.7.7"
+exo_player_version = "2.19.1"
+libphonenumber = "8.13.28"
+accompanist_version = "0.36.0"
+coil_version = "2.7.0"
+zxing_version = "3.5.3"
+dexter_version = "6.2.3"
+leakcanary_version = "2.14"
+flipper_version = "0.265.0"
+soloader_version = "0.11.0"
+opengraphkt_version = "1.0.0"
+kotlinx_serialization_json_version = "1.7.2"
+okhttp_version = "4.12.0"
+maps_version = "5.1.1"
+
+accompanist = "0.36.0"
+androidx-activity-compose = "1.9.2"
+androidx-core = "1.13.1"
+androidx-lifecycle = "2.8.6"
+androidx-test-junit = "1.2.1"
 
 # update version in README when changing below
-compose = "1.6.0"
+compose = "1.7.2"
 # https://androidx.dev/storage/compose-compiler/repository/
 # https://developer.android.com/jetpack/androidx/releases/compose-compiler
-composeCompiler = "1.5.8"
+composeCompiler = "1.5.15"
 
 kotlinx-coroutines = "1.7.3"
 kotlinx-collections-immutable = "0.3.7"
-
-libphonenumber = "8.13.28"
 
 junit = "4.13.2"
 robolectric = "4.11.1"
@@ -40,6 +63,8 @@ androidx-lifecycle-compose = {module = "androidx.lifecycle:lifecycle-runtime-com
 androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle" }
+androidx-material-icons-core = { module = "androidx.compose.material:material-icons-core", version.ref = "materialIconsCore" }
+androidx-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIconsCore" }
 androidx-test-junit = { module = "androidx.test.ext:junit-ktx", version.ref = "androidx-test-junit" }
 
 compose-activity = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity-compose" }

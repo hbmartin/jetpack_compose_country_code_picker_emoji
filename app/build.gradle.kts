@@ -45,5 +45,7 @@ dependencies {
     implementation(libs.compose.tooling)
     implementation(libs.compose.ui)
     implementation(projects.ccp)
+    implementation(libs.androidx.material.icons.core)
+    implementation(libs.androidx.material.icons.extended)
     testImplementation(libs.junit)
 }

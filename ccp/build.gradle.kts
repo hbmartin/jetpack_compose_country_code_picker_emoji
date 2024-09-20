@@ -56,6 +56,8 @@ dependencies {
     implementation(libs.compose.activity)
     implementation(libs.compose.material)
     implementation(libs.compose.tooling.preview)
+    implementation(libs.androidx.material.icons.core)
+    implementation(libs.androidx.material.icons.extended)
 
     detektPlugins("ru.kode:detekt-rules-compose:1.3.0")
     detektPlugins("io.nlopez.compose.rules:detekt:0.3.3")
