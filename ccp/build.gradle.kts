@@ -46,8 +46,11 @@ android {
 }
 
 dependencies {
+    val composeBom = platform(libs.androidx.compose.bom)
     api(libs.kotlinx.immutable)
     api(libs.libphonenumber)
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
     debugImplementation(libs.compose.tooling)
     implementation(libs.androidx.core)
     implementation(libs.androidx.lifecycle.compose)
