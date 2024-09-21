@@ -37,6 +37,8 @@ android {
 }
 
 dependencies {
+    val composeBom = platform(libs.androidx.compose.bom)
+    implementation(composeBom)
     implementation(libs.accompanist.systemuicontroller)
     implementation(libs.androidx.core)
     implementation(libs.androidx.lifecycle.runtime)
