@@ -1,5 +1,5 @@
 [versions]
-kotlin = "1.9.25"
+kotlin = "2.0.20"
 dokka = "1.9.10"
 
 ## SDK Versions
@@ -18,8 +18,6 @@ androidx-activity-compose = "1.9.2"
 androidx-core = "1.13.1"
 androidx-lifecycle = "2.8.6"
 androidx-test-junit = "1.2.1"
-
-composeCompiler = "1.5.15"
 
 kotlinx-coroutines = "1.7.3"
 kotlinx-collections-immutable = "0.3.7"
@@ -60,6 +58,8 @@ kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotl
 roboelectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 
 [plugins]
+org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 gradleVersions = { id = "com.github.ben-manes.versions", version.ref = "gradle-versions" }
 kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 paparazzi = { id = "app.cash.paparazzi", version.ref = "paparazzi" }

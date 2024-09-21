@@ -4,6 +4,7 @@ plugins {
     id("maven-publish")
     id("io.gitlab.arturbosch.detekt") version libs.versions.detekt.get()
     id("org.jetbrains.dokka")
+    alias(libs.plugins.compose.compiler)
     alias(libs.plugins.paparazzi)
 }
 
@@ -34,9 +35,6 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
         freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
     }
     publishing {
         singleVariant("release") {
