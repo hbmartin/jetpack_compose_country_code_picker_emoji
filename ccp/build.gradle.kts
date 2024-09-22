@@ -4,6 +4,7 @@ plugins {
     id("maven-publish")
     id("io.gitlab.arturbosch.detekt") version libs.versions.detekt.get()
     id("org.jetbrains.dokka")
+    alias(libs.plugins.compose.compiler)
     alias(libs.plugins.paparazzi)
 }
 
@@ -35,9 +36,6 @@ android {
         jvmTarget = JavaVersion.VERSION_17.toString()
         freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
-    }
     publishing {
         singleVariant("release") {
             withJavadocJar()
@@ -46,8 +44,11 @@ android {
 }
 
 dependencies {
+    val composeBom = platform(libs.androidx.compose.bom)
     api(libs.kotlinx.immutable)
     api(libs.libphonenumber)
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
     debugImplementation(libs.compose.tooling)
     implementation(libs.androidx.core)
     implementation(libs.androidx.lifecycle.compose)
@@ -55,6 +56,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.compose.activity)
     implementation(libs.compose.material)
+    implementation(libs.compose.icons)
     implementation(libs.compose.tooling.preview)
 
     detektPlugins("ru.kode:detekt-rules-compose:1.3.0")

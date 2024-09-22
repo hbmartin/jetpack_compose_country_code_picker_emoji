@@ -255,7 +255,7 @@ fun TogiCountryCodePicker(
         visualTransformation = phoneNumberTransformation,
         keyboardOptions = keyboardOptions ?: KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Phone,
-            autoCorrect = true,
+            autoCorrectEnabled = true,
             imeAction = ImeAction.Done,
         ),
         keyboardActions = keyboardActions ?: KeyboardActions(
