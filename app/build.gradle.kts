@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id ("org.jetbrains.kotlin.plugin.compose") version libs.versions.kotlin
 }
 
 android {
@@ -30,13 +31,12 @@ android {
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
-    }
+
     namespace = "com.togitech.togii"
 }
 
 dependencies {
+    implementation(platform(libs.compose.bom))
     implementation(libs.accompanist.systemuicontroller)
     implementation(libs.androidx.core)
     implementation(libs.androidx.lifecycle.runtime)
@@ -44,6 +44,7 @@ dependencies {
     implementation(libs.compose.material)
     implementation(libs.compose.tooling)
     implementation(libs.compose.ui)
+    implementation(libs.androidx.material3.android)
     implementation(projects.ccp)
     testImplementation(libs.junit)
 }

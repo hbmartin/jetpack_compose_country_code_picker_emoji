@@ -3,20 +3,20 @@ package com.togitech.ccp.component
 import android.content.Context
 import android.util.Log
 import androidx.compose.foundation.focusable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Text
-import androidx.compose.material.TextFieldColors
-import androidx.compose.material.TextFieldDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldColors
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -55,6 +55,7 @@ import com.togitech.ccp.transformation.PhoneNumberTransformation
 import kotlinx.collections.immutable.ImmutableSet
 import kotlinx.coroutines.launch
 
+
 private val DEFAULT_TEXT_FIELD_SHAPE = RoundedCornerShape(24.dp)
 private const val TAG = "TogiCountryCodePicker"
 
@@ -88,7 +89,7 @@ private const val TAG = "TogiCountryCodePicker"
  * @param [keyboardActions] An optional [KeyboardActions] to customize keyboard actions.
  * @param [showError] Whether to show error on field when number is invalid, default true.
  */
-@OptIn(ExperimentalComposeUiApi::class)
+@OptIn(ExperimentalComposeUiApi::class, ExperimentalMaterial3Api::class)
 @Suppress("LongMethod")
 @Composable
 fun TogiCountryCodePicker(
@@ -108,8 +109,8 @@ fun TogiCountryCodePicker(
     initialCountryIsoCode: Iso31661alpha2? = null,
     initialCountryPhoneCode: PhoneCode? = null,
     label: @Composable (() -> Unit)? = null,
-    textStyle: TextStyle = MaterialTheme.typography.body1.copy(
-        color = colors.textColor(enabled = true).value,
+    textStyle: TextStyle = MaterialTheme.typography.bodyLarge.copy(
+        color = MaterialTheme.colorScheme.onSurface,
     ),
     keyboardOptions: KeyboardOptions? = null,
     keyboardActions: KeyboardActions? = null,
@@ -229,9 +230,9 @@ fun TogiCountryCodePicker(
                 showCountryCode = showCountryCode,
                 showFlag = showCountryFlag,
                 textStyle = textStyle,
-                backgroundColor = colors.backgroundColor(enabled = true).value.let { color ->
+                backgroundColor = MaterialTheme.colorScheme.background.let { color ->
                     if (color == Color.Unspecified || color == Color.Transparent) {
-                        MaterialTheme.colors.surface
+                        MaterialTheme.colorScheme.surface
                     } else {
                         color
                     }
@@ -311,14 +312,16 @@ private fun ClearIconButton(
     isNumberValid: Boolean,
     onClick: () -> Unit,
 ) = IconButton(onClick = onClick) {
+    val enabled = true
+    val trailingIconColor = when {
+        !isNumberValid -> MaterialTheme.colorScheme.error
+        enabled -> MaterialTheme.colorScheme.onSurfaceVariant
+        else -> MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
+    }
     Icon(
         imageVector = imageVector,
         contentDescription = stringResource(id = R.string.clear),
-        tint = colors.trailingIconColor(
-            enabled = true,
-            isError = !isNumberValid,
-            interactionSource = remember { MutableInteractionSource() },
-        ).value,
+        tint = trailingIconColor
     )
 }
 
