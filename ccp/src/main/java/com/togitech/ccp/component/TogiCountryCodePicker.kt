@@ -129,7 +129,7 @@ fun TogiCountryCodePicker(
         initialPhoneNumber
     }
 
-    var phoneNumber by remember {
+    var phoneNumber by remember(phoneNumberWithoutCode) {
         mutableStateOf(
             TextFieldValue(
                 text = phoneNumberWithoutCode.orEmpty(),
